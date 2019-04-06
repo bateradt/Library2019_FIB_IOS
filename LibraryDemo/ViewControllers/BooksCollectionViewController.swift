@@ -19,7 +19,9 @@ class BooksCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UINib(nibName: String(describing: BookCollectionViewCell.self),
+                                            bundle: nil ) ,
+                                      forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -27,6 +29,21 @@ class BooksCollectionViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    let serviceClient = getServiceClient()
+    var books: [Book]?
+    
+    func getBooks() {
+        ld_performAsync { [unowned self] (resolve) in
+            self.serviceClient.getBooks(by: nil)
+            { (books, error) in
+                self.books = books
+                self.collectionView?.reloadData()
+                self.collectionView?.refreshControl?.endRefreshing()
+                resolve(error)
+                
+            }
+        }
     }
 
     /*

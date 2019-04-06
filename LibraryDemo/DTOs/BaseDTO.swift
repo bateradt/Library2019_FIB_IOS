@@ -10,7 +10,7 @@ import Foundation
 import EVReflection
 
 class BaseDTO : EVNetworkingObject {
-    var objectID: String?
+    var objectId: String?
     var updated: Int?
     var created: Int = Int(NSDate().timeIntervalSince1970)
     var ___class: String?

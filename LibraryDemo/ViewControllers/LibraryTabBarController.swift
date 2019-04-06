@@ -24,7 +24,7 @@ class LibraryTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [configureTab(for: AuthorsTableViewController(style: .plain), title: NSLocalizedString("Autores", comment: ""), iconName: "iconsAuthors")]
+        viewControllers = [configureTab(for: AuthorsTableViewController(style: .plain), title: NSLocalizedString("Autores", comment: ""), iconName: "iconAuthors")]
 
         // Do any additional setup after loading the view.
     }

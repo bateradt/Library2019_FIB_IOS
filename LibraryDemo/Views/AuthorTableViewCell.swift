@@ -28,7 +28,7 @@ class AuthorTableViewCell: UITableViewCell {
     var author: Author? {
         didSet {
             nameLabel.text = author?.name
-            ageLabel.text = author?.objectID
+            ageLabel.text = author?.objectId
         }
     }
     
