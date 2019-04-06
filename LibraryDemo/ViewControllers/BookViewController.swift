@@ -11,9 +11,9 @@ import SDWebImage
 
 class BookViewController: UIViewController {
 
-    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var overImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var authorLabe: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
     let book: Book
@@ -30,12 +30,12 @@ class BookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = book.title
-        coverImageView.sd_setImage(with: book.coverURL,
+        overImageView.sd_setImage(with: book.coverURL,
                                    placeholderImage: UIImage(named: "placeholderBook"),
                                    options: .allowInvalidSSLCertificates,
                                    completed: nil)
       titleLabel.text = book.title
-      authorLabel.text = NSLocalizedString("Author:", comment: "") +
+      authorLabe.text = NSLocalizedString("Author:", comment: "") +
         (book.author?.name ?? "")
         quantityLabel.text = NSLocalizedString("Quantidade: ", comment: "") +
         (book.quantity?.description ?? "0")
