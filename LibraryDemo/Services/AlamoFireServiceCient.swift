@@ -12,6 +12,7 @@ import EVReflection
 
 class AlamofireServiceClient: ServiceClient {
     func getAuthors(withNameLike nameQuery: String, callback: @escaping ([Author]?, ServiceError?) -> Void) {
+        
         GETRequest(type: Author.self, params: ["where":"name like '%\(nameQuery)%'"], callback: callback)
     }
     

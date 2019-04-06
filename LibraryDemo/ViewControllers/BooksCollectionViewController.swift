@@ -11,7 +11,14 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class BooksCollectionViewController: UICollectionViewController {
-
+    init() {
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +31,16 @@ class BooksCollectionViewController: UICollectionViewController {
                                       forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        collectionView!.refreshControl = UIRefreshControl()
+        collectionView!.refreshControl?.addTarget(self, action: #selector(getBooks), for: .valueChanged)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getBooks()
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,7 +49,7 @@ class BooksCollectionViewController: UICollectionViewController {
     let serviceClient = getServiceClient()
     var books: [Book]?
     
-    func getBooks() {
+    @objc func getBooks() {
         ld_performAsync { [unowned self] (resolve) in
             self.serviceClient.getBooks(by: nil)
             { (books, error) in
@@ -57,23 +73,18 @@ class BooksCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return books?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCollectionViewCell
+
+        cell.book = books?[indexPath.row]
+        
         return cell
     }
 
