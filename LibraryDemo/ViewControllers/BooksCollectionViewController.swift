@@ -11,11 +11,13 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class BooksCollectionViewController: UICollectionViewController {
-    init() {
+    init(author: Author? = nil) {
+        self.author = author
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     required init?(coder aDecoder: NSCoder) {
+        author = nil
         super.init(coder: aDecoder)
     }
     
@@ -33,6 +35,11 @@ class BooksCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         collectionView!.refreshControl = UIRefreshControl()
         collectionView!.refreshControl?.addTarget(self, action: #selector(getBooks), for: .valueChanged)
+        
+        let flowLayout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        flowLayout.itemSize = BookCollectionViewCell.cellSize
+        flowLayout.minimumInteritemSpacing = 5
+        collectionView?.backgroundColor = UIColor.groupTableViewBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,18 +47,19 @@ class BooksCollectionViewController: UICollectionViewController {
         getBooks()
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     let serviceClient = getServiceClient()
+    
+    let author: Author?
+    
     var books: [Book]?
     
     @objc func getBooks() {
         ld_performAsync { [unowned self] (resolve) in
-            self.serviceClient.getBooks(by: nil)
+            self.serviceClient.getBooks(by: self.author)
             { (books, error) in
                 self.books = books
                 self.collectionView?.reloadData()

@@ -107,6 +107,11 @@ class AuthorsTableViewController: UITableViewController {
         
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let booksVC = BooksCollectionViewController(author: authors?[indexPath.row])
+        navigationController?.pushViewController(booksVC, animated: true)
+    }
  
 
     /*

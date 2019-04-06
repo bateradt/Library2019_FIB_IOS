@@ -20,6 +20,8 @@
 		481C06C12246B79E00EE2A87 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C06C02246B79E00EE2A87 /* ServiceError.swift */; };
 		481C06C32246B93D00EE2A87 /* ServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C06C22246B93D00EE2A87 /* ServiceClient.swift */; };
 		481C06C52246BAF700EE2A87 /* AlamoFireServiceCient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C06C42246BAF700EE2A87 /* AlamoFireServiceCient.swift */; };
+		482C63C122592F800023DE73 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C63BF22592F800023DE73 /* BookViewController.swift */; };
+		482C63C222592F800023DE73 /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482C63C022592F800023DE73 /* BookViewController.xib */; };
 		4854AD032258E2BF00834C15 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854AD022258E2BF00834C15 /* Book.swift */; };
 		4854AD052258EB5C00834C15 /* BooksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854AD042258EB5C00834C15 /* BooksCollectionViewController.swift */; };
 		4854AD082258EBBD00834C15 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854AD062258EBBD00834C15 /* BookCollectionViewCell.swift */; };
@@ -43,6 +45,8 @@
 		481C06C02246B79E00EE2A87 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		481C06C22246B93D00EE2A87 /* ServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClient.swift; sourceTree = "<group>"; };
 		481C06C42246BAF700EE2A87 /* AlamoFireServiceCient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoFireServiceCient.swift; sourceTree = "<group>"; };
+		482C63BF22592F800023DE73 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		482C63C022592F800023DE73 /* BookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
 		4854AD022258E2BF00834C15 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4854AD042258EB5C00834C15 /* BooksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewController.swift; sourceTree = "<group>"; };
 		4854AD062258EBBD00834C15 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				481C06AB2246643A00EE2A87 /* LibraryTabBarController.swift */,
 				481C06AD22466F6E00EE2A87 /* AuthorsTableViewController.swift */,
 				4854AD042258EB5C00834C15 /* BooksCollectionViewController.swift */,
+				482C63BF22592F800023DE73 /* BookViewController.swift */,
+				482C63C022592F800023DE73 /* BookViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 				481C06B722469C6600EE2A87 /* AuthorTableViewCell.xib in Resources */,
 				60B3399C205544E4009E6A4B /* Assets.xcassets in Resources */,
 				4854AD092258EBBD00834C15 /* BookCollectionViewCell.xib in Resources */,
+				482C63C222592F800023DE73 /* BookViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +330,7 @@
 				481C06C12246B79E00EE2A87 /* ServiceError.swift in Sources */,
 				4854AD082258EBBD00834C15 /* BookCollectionViewCell.swift in Sources */,
 				481C06BD2246B60E00EE2A87 /* ErrorResponse.swift in Sources */,
+				482C63C122592F800023DE73 /* BookViewController.swift in Sources */,
 				4854AD0B2258F17700834C15 /* UIViewController+Async.swift in Sources */,
 				481C06BF2246B6E300EE2A87 /* ErrorCode.swift in Sources */,
 			);
