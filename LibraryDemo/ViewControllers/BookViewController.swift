@@ -29,6 +29,7 @@ class BookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = book.title
         coverImageView.sd_setImage(with: book.coverURL,
                                    placeholderImage: UIImage(named: "placeholderBook"),
                                    options: .allowInvalidSSLCertificates,

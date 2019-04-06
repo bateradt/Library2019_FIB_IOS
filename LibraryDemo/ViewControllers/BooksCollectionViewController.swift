@@ -95,6 +95,11 @@ class BooksCollectionViewController: UICollectionViewController {
         
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //
+        navigationController?.pushViewController(BookViewController(book: books![indexPath.row]), animated: true)
+    }
 
     // MARK: UICollectionViewDelegate
 
